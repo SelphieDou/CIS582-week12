@@ -48,7 +48,7 @@ class TXO:
                 owner = tx['vout']['addresses']['address']
                 amount = int(tx['vout']['value']) #change numeric to int
                 time = datetime.datetime.fromtimestamp(tx['time'],None) #covert timestemp to datetime 
-                print tx_hash, n, owner, amount, time
+                print (tx_hash, n, owner, amount, time)
                 break
             else:
                 print('No such transaction!')
