@@ -42,7 +42,7 @@ class TXO:
 
         tx = rpc_connection.getrawtransaction(tx_hash,True)
         for attr in tx['vout']:
-            if attr['n'] == 0:     #??Is n a fixed number?
+            if attr['n'] == 0:   
                 tx_hash = tx['hash']
                 n = tx['vout']['n']
                 owner = tx['vout']['addresses']['address']
