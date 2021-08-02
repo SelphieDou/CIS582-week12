@@ -80,13 +80,14 @@ class TXO:
                 self.inputs.append(obj)
         
         #fill the first level of leaves (inputs of the current transaction)
-        if d == 0: 
+        if d == 1: 
             return self #if depth = 0, done.
-        if d > 0:
+        if d > 1:
             if not self.inputs:
                 #if depth > 1, recursively call this function for each leaf(inputs) and get its TXO objects
                 for obj in self.inputs: 
-                    obj.get_inputs(d-1)
+                    print(obj.tx_hash, obj.n, obj.owner, obj.amount, obj.time)
+                    #obj.get_inputs(d-1)
                     #print(len(self.inputs[0].inputs))
             return self
 
