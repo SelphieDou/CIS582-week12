@@ -36,7 +36,7 @@ class TXO:
         return json.dumps(json_dict, sort_keys=True, indent=4)
 
     @classmethod
-    def from_tx_hash(cls,tx_hash,n):
+    def from_tx_hash(cls,tx_hash,n=0):
         #YOUR CODE HERE
         #this function takes in a txid of a transaction and return a TXO object of that transaction
 
@@ -59,7 +59,7 @@ class TXO:
         return TXO(tx_hash, n, amount, owner, time)
         
 
-    def get_inputs(self,d):
+    def get_inputs(self,d=1):
         #YOUR CODE HERE
         if not self.tx_hash:
             print('Invalid inputs!')
