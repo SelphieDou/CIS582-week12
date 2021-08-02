@@ -52,7 +52,7 @@ class TXO:
                 print(owner)
                 amount = int(attr['value']) 
                 print(amount)
-                time = datetime.datetime.fromtimestamp(tx['time'],None) 
+                #time = datetime.datetime.fromtimestamp(tx['time'],None) 
                 print(tx['time'])
                 break
             else:
