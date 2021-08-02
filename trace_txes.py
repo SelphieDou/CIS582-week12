@@ -78,8 +78,9 @@ class TXO:
                 obj = TXO.from_tx_hash(attr['txid']) 
                 print(obj.tx_hash, obj.n, obj.owner, obj.amount, obj.time)
                 self.inputs.append(obj)
-                print(self.inputs[0])
-        print(self.inputs)
+                
+        print(len(self.inputs))
+        print(len(self.inputs[0].inputs))
         
         #fill the first level of leaves (inputs of the current transaction)
         if d == 1: 
