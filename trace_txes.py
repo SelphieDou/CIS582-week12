@@ -48,9 +48,8 @@ class TXO:
                 print(tx_hash)
                 n = attr['n']
                 print(n)
-                address = attr['scriptPubKey']['addresses']
-                owner = json.loads(address)
-                print(owner['addresses'])
+                owner = attr['scriptPubKey']['addresses']
+                print(owner)
                 amount = int(attr['value']) 
                 print(amount)
                 time = datetime.datetime.fromtimestamp(tx['time'],None) 
