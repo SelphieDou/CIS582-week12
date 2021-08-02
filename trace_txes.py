@@ -47,7 +47,10 @@ class TXO:
                 tx_hash = tx['hash']
                 n = attr['n']
                 amount = int(attr['value']) 
-                owner = attr['scriptPubKey']['addresses']
+                address = attr['scriptPubKey']['addresses']
+                owner = ''
+                for add in address[0]:
+                    owner += add
                 time = datetime.fromtimestamp(tx['time'],None) 
                 print(tx_hash, n, amount, owner, time)
                 break
