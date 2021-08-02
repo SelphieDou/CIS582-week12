@@ -69,7 +69,7 @@ class TXO:
             return
         
         tx = rpc_connection.getrawtransaction(self.tx_hash,True)
-        print(tx)
+        #print(tx)
         
         if tx['vin']:
             for attr in tx['vin']:
@@ -77,7 +77,7 @@ class TXO:
                 print(attr['txid'])
                 obj = TXO.from_tx_hash(attr['txid']) 
                 self.inputs.append(obj)
-                print(self.inputs)
+                print(self.inputs[0])
         print(self.inputs)
         
         #fill the first level of leaves (inputs of the current transaction)
