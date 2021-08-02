@@ -88,7 +88,7 @@ class TXO:
             for attr in tx['vin']:
                 #call classmethod
                 #get every TXO object from input ('vin') list
-                obj = TXO.from_tx_hash(attr['txid'],0) 
+                obj = TXO.from_tx_hash(self.tx_hash,self.n) 
                 self.inputs.append(obj)
         return self
 
