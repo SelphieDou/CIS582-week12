@@ -83,7 +83,7 @@ class TXO:
         if d == 1: 
             return self #if depth = 0, done.
         if d > 1:
-            if not self.inputs:
+            if self.inputs:
                 #if depth > 1, recursively call this function for each leaf(inputs) and get its TXO objects
                 for obj in self.inputs: 
                     print(obj.tx_hash, obj.n, obj.owner, obj.amount, obj.time)
