@@ -64,7 +64,7 @@ class TXO:
         if not self.tx_hash:
             print('Invalid inputs!')
             return 
-        if d < 1:
+        if d < 0:
             print('Invalid depth!')
             return
         
@@ -76,15 +76,12 @@ class TXO:
                 #call classmethod, get every TXO object from input ('vin') list
                 #print(attr['txid'])
                 obj = TXO.from_tx_hash(attr['txid']) 
-                print(obj.tx_hash, obj.n, obj.owner, obj.amount, obj.time)
+                #print(obj.tx_hash, obj.n, obj.owner, obj.amount, obj.time)
                 self.inputs.append(obj)
-                
-        print(len(self.inputs))
-        print(len(self.inputs[0].inputs))
         
         #fill the first level of leaves (inputs of the current transaction)
-        if d == 1: 
-            return self #if depth = 1, done.
+        if d == 0: 
+            return self #if depth = 0, done.
         if d > 1:
             if not self.inputs:
                 #if depth > 1, recursively call this function for each leaf(inputs) and get its TXO objects
