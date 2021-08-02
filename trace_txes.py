@@ -41,6 +41,7 @@ class TXO:
         #this function takes in a txid of a transaction and return a TXO object of that transaction
 
         tx = rpc_connection.getrawtransaction(tx_hash,True)
+        print(tx)
         for attr in tx['vout']:
             if attr['n'] == 0:   
                 tx_hash = tx['hash']
@@ -52,7 +53,7 @@ class TXO:
                 amount = int(attr['value']) 
                 print(amount)
                 time = datetime.datetime.fromtimestamp(tx['time'],None) 
-                print (time)
+                print(time)
                 break
             else:
                 print('No such transaction!')
