@@ -36,14 +36,14 @@ class TXO:
         return json.dumps(json_dict, sort_keys=True, indent=4)
 
     @classmethod
-    def from_tx_hash(cls,tx_hash,n=0):
+    def from_tx_hash(cls,tx_hash,m):
         #YOUR CODE HERE
         #this function takes in a txid of a transaction and return a TXO object of that transaction
 
         tx = rpc_connection.getrawtransaction(tx_hash,True)
         print(tx)
         for attr in tx['vout']:
-            if attr['n'] == 0:   
+            if attr['n'] == m:   
                 tx_hash = tx['hash']
                 n = attr['n']
                 amount = int(attr['value']*100000000) 
