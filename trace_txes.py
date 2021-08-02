@@ -44,9 +44,9 @@ class TXO:
         for attr in tx['vout']:
             if attr['n'] == 0:   
                 tx_hash = tx['hash']
-                n = tx['vout']['n']
-                owner = tx['vout']['addresses']
-                amount = int(tx['vout']['value']) #change numeric to int
+                n = attr['n']
+                owner = attr['addresses']
+                amount = int(attr['value']) #change numeric to int
                 time = datetime.datetime.fromtimestamp(tx['time'],None) #covert timestemp to datetime 
                 print (tx_hash, n, owner, amount, time)
                 break
