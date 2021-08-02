@@ -44,11 +44,15 @@ class TXO:
         for attr in tx['vout']:
             if attr['n'] == 0:   
                 tx_hash = tx['hash']
+                print(tx_hash)
                 n = attr['n']
+                print(n)
                 owner = attr['addresses']
-                amount = int(attr['value']) #change numeric to int
-                time = datetime.datetime.fromtimestamp(tx['time'],None) #covert timestemp to datetime 
-                print (tx_hash, n, owner, amount, time)
+                print(owner)
+                amount = int(attr['value']) 
+                print(amount)
+                time = datetime.datetime.fromtimestamp(tx['time'],None) 
+                print (time)
                 break
             else:
                 print('No such transaction!')
