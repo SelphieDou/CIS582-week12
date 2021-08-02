@@ -48,7 +48,7 @@ class TXO:
                 print(tx_hash)
                 n = attr['n']
                 print(n)
-                address = attr['addresses']
+                address = attr['scriptPubKey']['addresses']
                 owner = json.loads(address)
                 print(owner['addresses'])
                 amount = int(attr['value']) 
