@@ -41,7 +41,7 @@ class TXO:
         #this function takes in a txid of a transaction and return a TXO object of that transaction
 
         tx = rpc_connection.getrawtransaction(tx_hash,True)
-        #print(tx)
+        print(tx)
         for attr in tx['vout']:
             if attr['n'] == 0:   
                 tx_hash = tx['hash']
@@ -49,7 +49,7 @@ class TXO:
                 amount = int(attr['value']*100000000) 
                 address = attr['scriptPubKey']['addresses']
                 owner = ''
-                for add in address[0,3]:
+                for add in address[0]:
                     owner += add
                 time = datetime.fromtimestamp(tx['time'],None) 
                 print(tx_hash, n, amount, owner, time)
