@@ -53,7 +53,7 @@ class TXO:
                 break
             else:
                 print('No such transaction!')
-        return TXO['tx_hash', 'n', 'amount', 'owner', 'time']
+        return TXO[tx_hash, n, amount, owner, time]
         
 
     def get_inputs(self,d):
