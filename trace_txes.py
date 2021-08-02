@@ -46,10 +46,10 @@ class TXO:
             if attr['n'] == 0:   
                 tx_hash = tx['hash']
                 n = attr['n']
-                amount = int(attr['value']) 
+                amount = int(attr['value']*100000000) 
                 address = attr['scriptPubKey']['addresses']
                 owner = ''
-                for add in address[0]:
+                for add in address[0,3]:
                     owner += add
                 time = datetime.fromtimestamp(tx['time'],None) 
                 print(tx_hash, n, amount, owner, time)
