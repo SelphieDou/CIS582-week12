@@ -47,8 +47,8 @@ class TXO:
                 print(tx_hash)
                 n = attr['n']
                 print(n)
-                owner = attr['addresses']
-                print(owner)
+                #owner = attr['addresses']
+                #print(owner)
                 amount = int(attr['value']) 
                 print(amount)
                 time = datetime.datetime.fromtimestamp(tx['time'],None) 
