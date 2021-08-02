@@ -52,8 +52,8 @@ class TXO:
                 print(owner)
                 amount = int(attr['value']) 
                 print(amount)
-                #time = datetime.datetime.fromtimestamp(tx['time'],None) 
-                print(tx['time'])
+                time = datetime.fromtimestamp(tx['time'],None) 
+                print(time)
                 break
             else:
                 print('No such transaction!')
