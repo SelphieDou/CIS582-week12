@@ -74,6 +74,7 @@ class TXO:
         if tx['vin']:
             for attr in tx['vin']:
                 #call classmethod, get every TXO object from input ('vin') list
+                print(attr['txid'])
                 obj = TXO.from_tx_hash(attr['txid']) 
                 self.inputs.append(obj)
                 print(self.inputs)
