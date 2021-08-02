@@ -67,8 +67,19 @@ class TXO:
         if d < 1:
             print('Invalid depth!')
             return
-
-        self.get_leaf_TXOs() #fill the first level of leaves (inputs of the current transaction)
+        
+        tx = rpc_connection.getrawtransaction(self.tx_hash,True)
+        print(tx)
+        
+        if tx['vin']:
+            for attr in tx['vin']:
+                #call classmethod, get every TXO object from input ('vin') list
+                obj = TXO.from_tx_hash(attr['txid']) 
+                self.inputs.append(obj)
+                print(self.inputs)
+        print(self.inputs)
+        
+        #fill the first level of leaves (inputs of the current transaction)
         if d == 1: 
             return self #if depth = 1, done.
         if d > 1:
@@ -79,18 +90,6 @@ class TXO:
             return self
 
         
-
-    def get_leaf_TXOs(self):
-        #this function take an TXO object as input and fill its leaves(inputs) lists with its input TXOs
-        if self.tx_hash:
-            tx = rpc_connection.getrawtransaction(self.tx_hash,True)
-        if tx['vin']:
-            for attr in tx['vin']:
-                #call classmethod
-                #get every TXO object from input ('vin') list
-                obj = TXO.from_tx_hash(attr['txid']) 
-                self.inputs.append(obj)
-        return self
 
 
 
