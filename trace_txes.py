@@ -86,7 +86,8 @@ class TXO:
             if not self.inputs:
                 #if depth > 1, recursively call this function for each leaf(inputs) and get its TXO objects
                 for obj in self.inputs: 
-                    self.get_inputs(obj,d-1)   
+                    self.get_inputs(obj,d-1)
+                    print(len(self.inputs[0].inputs))
             return self
 
         
