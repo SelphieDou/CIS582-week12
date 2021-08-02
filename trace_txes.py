@@ -48,12 +48,12 @@ class TXO:
                 print(tx_hash)
                 n = attr['n']
                 print(n)
-                #owner = attr['addresses']
-                #print(owner)
+                owner = attr['addresses'][0]
+                print(owner)
                 amount = int(attr['value']) 
                 print(amount)
                 time = datetime.datetime.fromtimestamp(tx['time'],None) 
-                print(time)
+                print(tx['time'])
                 break
             else:
                 print('No such transaction!')
